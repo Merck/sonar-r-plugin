@@ -1,0 +1,233 @@
+<rules>
+    <!-- Severity : INFO, MINOR, MAJOR (default), CRITICAL, BLOCKER. -->
+    <!-- Type: CODE_SMELL (default), BUG and VULNERABILITY.-->
+    <rule>
+        <key>absolute_paths_linter</key>
+        <name>Absolute Paths</name>
+        <description>
+            <![CDATA[checks that no absolute paths are used]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>assignment_linter</key>
+        <name>Assignment</name>
+        <description>
+            <![CDATA[checks that '<-' is always used for assignment]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>closed_curly_linter</key>
+        <name>Closed Curly</name>
+        <description>
+            <![CDATA[check that closed curly braces should always be on their own line unless they follow an else]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>commas_linter</key>
+        <name>Commas</name>
+        <description>
+            <![CDATA[check that all commas are followed by spaces, but do not have spaces before them]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>commented_code_linter</key>
+        <name>Commented Code</name>
+        <description>
+            <![CDATA[checks that there is no commented code outside roxygen blocks]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>infix_spaces_linter</key>
+        <name>Infix Spaces</name>
+        <description>
+            <![CDATA[check that all infix operators have spaces around them]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>line_length_linter</key>
+        <name>Line Length</name>
+        <description>
+            <![CDATA[check the line length of both comments and code is less than length]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>no_tab_linter</key>
+        <name>No Tab</name>
+        <description>
+            <![CDATA[check that only spaces are used, never tabs]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>object_usage_linter</key>
+        <name>Object Usage</name>
+        <description>
+            <![CDATA[checks that closures have the proper usage using checkUsage. Note this runs eval on the code, so do not use with untrusted code]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>camel_case_linter</key>
+        <name>Camel Case</name>
+        <description>
+            <![CDATA[check that objects are not in camelCase]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>snake_case_linter</key>
+        <name>Snake Case</name>
+        <description>
+            <![CDATA[check that objects are not in snake_case]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>multiple_dots_linter</key>
+        <name>Multiple Dots</name>
+        <description>
+            <![CDATA[check that objects do not have.multiple.dots]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>object_length_linter</key>
+        <name>Object Length</name>
+        <description>
+            <![CDATA[check that objects do are not very long.not have.multiple.dots]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>open_curly_linter</key>
+        <name>Open Curly</name>
+        <description>
+            <![CDATA[check that opening curly braces are never on their own line and are always followed by a newline]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>single_quotes_linter</key>
+        <name>Single Quotes</name>
+        <description>
+            <![CDATA[checks that only single quotes are used to delimit string contestants]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>spaces_inside_linter</key>
+        <name>Spaces Inside</name>
+        <description>
+            <![CDATA[check that parentheses and square brackets do not have spaces directly inside them]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>spaces_left_parentheses_linter</key>
+        <name>Spaces Left Parenhteses</name>
+        <description>
+            <![CDATA[check that all left parentheses have a space before them unless they are in a function call]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>trailing_blank_lines_linter</key>
+        <name>Trailing Blank Lines</name>
+        <description>
+            <![CDATA[check there are no trailing blank lines]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>trailing_whitespace_linter</key>
+        <name>Trailing Whitespace</name>
+        <description>
+            <![CDATA[check there are no trailing whitespace characters]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+
+</rules>
