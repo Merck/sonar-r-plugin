@@ -2,6 +2,18 @@
     <!-- Severity : INFO, MINOR, MAJOR (default), CRITICAL, BLOCKER. -->
     <!-- Type: CODE_SMELL (default), BUG and VULNERABILITY.-->
     <rule>
+        <key>error</key>
+        <name>Parsing Error</name>
+        <description>
+            <![CDATA[severe language error during lintr processing]]>
+        </description>
+        <severity>BLOCKER</severity>
+        <type>BUG</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>1h</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
         <key>absolute_paths_linter</key>
         <name>Absolute Paths</name>
         <description>

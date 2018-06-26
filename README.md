@@ -20,7 +20,10 @@ Installed Java 8 is required:
 # wait for message: SonarQube is up
 # stop it by Ctrl-C
 ```
-Repeat previous steps for any changes made in the plugin.
+Repeat previous steps for any changes made in the plugin:
+```bash
+./mvnw clean package && ./sonar-local.sh console
+```
 
 Check logs in different terminal session:
 ```bash
@@ -38,6 +41,9 @@ Add SonarQube into a Project
 Follow SonarQube best practices to get existing project configured for SonarQube:
 [https://share.merck.com/display/BP/SonarQube](https://share.merck.com/display/BP/SonarQube)
 
-In case the local SonarQube instance should be used, just update URL to:
-`http://localhost:9000`
+In case the local SonarQube instance should be used, just update SonarQube server URL to `http://localhost:9000`.
 
+For example in `sonar-project.properties`:
+```properties
+sonar.host.url=http://localhost:9000
+```
