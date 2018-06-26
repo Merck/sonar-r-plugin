@@ -1,54 +1,32 @@
 Sonar R Plugin
 ==============
-
-TBD
-
-Installing R on MacOS
----------------------
-
-```bash
-brew install r
-```
-
-Content for `~/.Rprofile`:
-```
-local({r <- getOption("repos")
-   r["CRAN"] <- "https://cloud.r-project.org"
-   options(repos=r)
-})
-```
-
-Content for: `~/.Renviron`:
-```
-http_proxy=http://uswhsc88.merck.com:8080
-https_proxy=http://uswhsc88.merck.com:8080
-```
-
-```bash
-Rscript -e 'install.packages("lintr")'
-Rscript -e 'install.packages("devtools")'
-Rscript -e 'install.packages("roxygen2")'
-```
-
-Run LintR
----------
-```bash
-Rscript -e 'lintr::lint_package()'
-```
+Adds support for [R language](https://www.r-project.org/) into SonarQube. Currently, it uses output from [lintr tool](https://github.com/jimhester/lintr)
+which is processed by the plugin and uploaded into SonarQube server.
 
 Extending SonarQube
 -------------------
-[https://docs.sonarqube.org/display/DEV/Extension+Guide]
+[https://docs.sonarqube.org/display/DEV/Extension+Guide](https://docs.sonarqube.org/display/DEV/Extension+Guide)
 
-Run SonarQube Locally
----------------------
-
-```bash
-./.sonar/sonar.sh console
-tail -f -n 0 ./.sonar/sonarqube-6.7.4/logs/*
-```
+Run SonarQube Locally with the Plugin
+-------------------------------------
 
 ```bash
-cd sample-project
-./sonar-scanner-run.sh
+./sonar-local.sh console
+# check logs for issues
+tail -f -n 0 ./.sonar/sonarqube-*/logs/*
 ```
+
+[Web UI is running here](http://localhost:9000) (admin access defaults: `admin/admin`)
+
+Sample Project
+--------------
+[sample-project/README.md](sample-project/README.md)
+
+Add SonarQube into a Project
+----------------------------
+Follow SonarQube best practices to get existing project configured for SonarQube:
+[https://share.merck.com/display/BP/SonarQube](https://share.merck.com/display/BP/SonarQube)
+
+In case the local SonarQube instance should be used, just update URL to:
+`http://localhost:9000`
+

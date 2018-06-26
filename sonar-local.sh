@@ -24,9 +24,10 @@ SONAR_ZIP="${SONAR_WORK}/${SONAR_NAME}.zip"
 
 SONAR_INSTANCE="${SONAR_WORK}/${SONAR_NAME}"
 
-[ -d "${SONAR_INSTANCE}" ] || unzip "${SONAR_ZIP}" -d "${SONAR_WORK}"
+[ -d "${SONAR_INSTANCE}/bin" ] || unzip "${SONAR_ZIP}" -d "${SONAR_WORK}"
 
-
-ln -fs "${SONAR_INSTANCE}/bin/macosx-universal-64/sonar.sh" "${SONAR_WORK}/sonar.sh"
 
 echo "SonarQube Instance: ${SONAR_INSTANCE}"
+
+"${SONAR_INSTANCE}/bin/macosx-universal-64/sonar.sh" "$@"
+
