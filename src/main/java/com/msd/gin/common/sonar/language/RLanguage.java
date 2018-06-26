@@ -1,6 +1,6 @@
 package com.msd.gin.common.sonar.language;
 
-import com.msd.gin.common.sonar.settings.RLanguageProperties;
+import com.msd.gin.common.sonar.SonarRPlugin;
 import org.apache.commons.lang3.StringUtils;
 import org.sonar.api.config.Configuration;
 import org.sonar.api.resources.AbstractLanguage;
@@ -22,11 +22,8 @@ public final class RLanguage extends AbstractLanguage {
 
     @Override
     public String[] getFileSuffixes() {
-        String[] suffixes = filterEmptyStrings(config.getStringArray(RLanguageProperties.FILE_SUFFIXES_KEY));
-        if (suffixes.length == 0) {
-            suffixes = StringUtils.split(RLanguageProperties.FILE_SUFFIXES_DEFAULT_VALUE, ",");
-        }
-        return suffixes;
+        String[] propertyValue = config.getStringArray(SonarRPlugin.PROPERTY_FILE_SUFFIXES);
+        return filterEmptyStrings(propertyValue);
     }
 
     private String[] filterEmptyStrings(String[] stringArray) {
@@ -36,6 +33,6 @@ public final class RLanguage extends AbstractLanguage {
                 nonEmptyStrings.add(string.trim());
             }
         }
-        return nonEmptyStrings.toArray(new String[nonEmptyStrings.size()]);
+        return nonEmptyStrings.toArray(new String[0]);
     }
 }

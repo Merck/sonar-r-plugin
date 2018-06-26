@@ -25,8 +25,6 @@ public class LintRSensor implements Sensor {
 
     private static final Logger LOGGER = Loggers.get(LintRSensor.class);
 
-    public static final String LINTR_OUTPUT_FILE = "lintr_out.json";
-
     private final FileSystem fileSystem;
 
     public LintRSensor(FileSystem fileSystem) {
@@ -41,11 +39,12 @@ public class LintRSensor implements Sensor {
     @Override
     public void execute(SensorContext context) {
         LOGGER.info("Running sensor for LintR");
+        final String lintrOutputFile = context.config().get(SonarRPlugin.PROPERTY_LINTR_OUTPUT_FILE).get();
         byte[] content;
         try {
-            content = Files.readAllBytes(Paths.get(LINTR_OUTPUT_FILE));
+            content = Files.readAllBytes(Paths.get(lintrOutputFile));
         } catch (IOException e) {
-            LOGGER.warn("Cannot read " + LINTR_OUTPUT_FILE + " file, skipping", e);
+            LOGGER.warn("Cannot read " + lintrOutputFile + " file, skipping", e);
             return;
         }
         String jsonContent = new String(content, StandardCharsets.UTF_8);
