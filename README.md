@@ -9,10 +9,21 @@ Extending SonarQube
 
 Run SonarQube Locally with the Plugin
 -------------------------------------
+Installed Java 8 is required:
+[https://share.merck.com/display/BP/JDK+on+MacOS](https://share.merck.com/display/BP/JDK+on+MacOS)
 
 ```bash
+# build plugin and put it into SonarQube instance
+./mvnw clean package
+# run SonarQube server 
 ./sonar-local.sh console
-# check logs for issues
+# wait for message: SonarQube is up
+# stop it by Ctrl-C
+```
+Repeat previous steps for any changes made in the plugin.
+
+Check logs in different terminal session:
+```bash
 tail -f -n 0 ./.sonar/sonarqube-*/logs/*
 ```
 
