@@ -17,6 +17,10 @@
     <name>Sonar R Plugin</name>
     <description>SonarQube plugin for R language</description>
 
+    <properties>
+        <artifacts.repository.name>gin-common</artifacts.repository.name>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.sonarsource.sonarqube</groupId>
