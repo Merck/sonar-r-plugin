@@ -1,0 +1,5 @@
+{
+  "_comment": "This is JSON definition for Jenkins jobs defined by class: https://stash.merck.com/projects/BDP/repos/bdp-deploy/browse/job-seed/src/main/groovy/com/msd/gin/jenkins/definition/Repository.groovy",
+  "gitType" : "FULL_GIT_FLOW",
+  "mavenSettings": "mf-settings.xml"
+}
