@@ -13,6 +13,9 @@ Installed Java 8 is required:
 [https://share.merck.com/display/BP/JDK+on+MacOS](https://share.merck.com/display/BP/JDK+on+MacOS)
 
 ```bash
+# install maven settings for MSD
+# https://share.merck.com/display/BP/Maven+Settings+in+MSD
+mkdir -p ~/.m2 && curl -sSL 'https://artifacts.merck.com/artifactory/generic-dostack/local-development/mvn/settings.xml' > ~/.m2/settings.xml
 # build plugin and put it into SonarQube instance
 ./mvnw clean package
 # run SonarQube server 
