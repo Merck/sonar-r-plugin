@@ -20,12 +20,11 @@ mkdir -p "${SONAR_WORK}"
 
 SONAR_ZIP="${SONAR_WORK}/${SONAR_NAME}.zip"
 
-[ -f "${SONAR_ZIP}" ] || wget -O "${SONAR_ZIP}" "${URL}"
+[ -s "${SONAR_ZIP}" ] || wget --no-check-certificate -O "${SONAR_ZIP}" "${URL}"
 
 SONAR_INSTANCE="${SONAR_WORK}/${SONAR_NAME}"
 
 [ -d "${SONAR_INSTANCE}/bin" ] || unzip "${SONAR_ZIP}" -d "${SONAR_WORK}"
-
 
 echo "SonarQube Instance: ${SONAR_INSTANCE}"
 

@@ -20,7 +20,7 @@ mkdir -p "${SONAR_WORK}"
 
 SONAR_SCANNER_ZIP="${SONAR_WORK}/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-macosx.zip"
 
-[ -f "${SONAR_SCANNER_ZIP}" ] || wget -O "${SONAR_SCANNER_ZIP}" "${URL}"
+[ -s "${SONAR_SCANNER_ZIP}" ] || wget --no-check-certificate -O "${SONAR_SCANNER_ZIP}" "${URL}"
 
 SONAR_SCANNER_INSTANCE="${SONAR_WORK}/sonar-scanner-${SONAR_SCANNER_VERSION}-macosx"
 
