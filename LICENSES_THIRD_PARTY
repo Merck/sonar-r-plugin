@@ -1,0 +1,19 @@
+--------------------------------------------------
+Third party Java libraries listed by License type
+[Format: Name (Maven Project) - URL]
+--------------------------------------------------
+
+GNU LGPL 3 (http://www.gnu.org/licenses/lgpl.txt)
+  * Sonar Plugin API (org.sonarsource.sonarqube:sonar-plugin-api) - http://www.sonarqube.org
+
+Apache Software License, Version 2.0 (http://opensource.org/licenses/apache2.0)
+  * Gson (com.google.code.gson:gson) - https://github.com/google/gson
+  * Apache Commons Lang (org.apache.commons:commons-lang3) - http://commons.apache.org/proper/commons-lang
+  * Maven Wrapper (N/A) - https://github.com/takari/maven-wrapper
+
+GNU Lesser General Public License (LGPL), Version 2.1 (http://www.fsf.org/licensing/licenses/lgpl.txt)
+  * org.codehaus.woodstox:woodstox-core-lgpl
+
+BSD License (http://www.opensource.org/licenses/bsd-license.php)
+  * StaxMate (org.codehaus.staxmate:staxmate) - https://github.com/FasterXML/StaxMate
+  * Stax2 API (org.codehaus.woodstox:stax2-api) - https://github.com/FasterXML/stax2-api
