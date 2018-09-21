@@ -1,8 +1,17 @@
 language: java
-
 jdk:
 - openjdk8
-
 cache:
   directories:
-    - '$HOME/.m2/repository'
+  - "$HOME/.m2/repository"
+before_deploy:
+  - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+deploy:
+  provider: releases
+  api_key:
+    secure: onfsrL37o8RTd40kgsc6vciz4Ong9kIkZz9d2Y8AWKDAOf1qj/lZ8xslbKXuoGzuOYc3Wy7pCWZ7JymJNIWyWLMz6xjVEFH2q0VUn0ToCApUoORdYe2+y7ZrmXPJgRUmciDYskeprJySElthOzt1/I3lJ9DopTxW5B/DbxEsLnRHtasmilmdWT5c+X7IKba4X87Q+nC7FJcLn8H6q+YYYi5u9HNqAfNYGOB2Hj3eYaCze/Dge6HJDOmjzpPrPE9Cp1BAl+VVAPRp7ctaMIu1ImEjd8CC6L49CLrxTGl/7Vi49bg9ukdp67Uw1MbyOoxHNLdowmhXalZCtj2vJ352+7Cc3206/1Ssi0I3Ok09EV/wGLDDgxvagg3EvFko10oXHchyxurFS1W5cTQ5eM+/YPi22A/1IZwfIKLOV4A9gowFMaf9gZmd4Kfxh1/+36SmbdR2lB2tCJ3681wI/tli0YvFmLFTN8f+8rpWonu/e5DPfTkgKUXjqY2bZg80h9LvmXb9wrDZZip6WDQK3WDuTvCjl2KVhD71eic/ze+bzbIfdwuhY4T1N0u0XNgmfXSAJIaMSJsPiLE5o3A2GPY1Pi9ljvkbHL0NPOWBNlaBuuhQIROogBT2hRdo1S72XU60/FRf8RXLrkuMMuVe+cXwOqi3CSJRh0uUMtIPVyzjQmY=
+  file: target/sonar-r-plugin-$project_version.jar
+  on:
+    repo: Merck/sonar-r-plugin
+    branch: github-master
