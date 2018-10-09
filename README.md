@@ -1,6 +1,7 @@
 Sonar R Plugin
 ==============
 [![Build Status](https://travis-ci.org/Merck/sonar-r-plugin.svg?branch=master)](https://travis-ci.org/Merck/sonar-r-plugin)
+[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=com.msd.gin.common.sonar:sonar-r-plugin&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.msd.gin.common.sonar:sonar-r-plugin)
 
 Adds support for [R language](https://www.r-project.org/) into SonarQube. Currently, it uses output from [lintr tool](https://github.com/jimhester/lintr)
 which is processed by the plugin and uploaded into SonarQube server.
@@ -16,7 +17,7 @@ Installed Java 8 is required.
 ```bash
 # build plugin and put it into SonarQube instance
 ./mvnw clean package
-# run SonarQube server 
+# run SonarQube server
 ./sonar-local.sh console
 # wait for message: SonarQube is up
 # stop it by Ctrl-C
@@ -39,7 +40,7 @@ Sample Project
 
 Add SonarQube into a Project
 ----------------------------
-Follow standard procedure to add SonarQube analysis to existing project: 
+Follow standard procedure to add SonarQube analysis to existing project:
 [https://docs.sonarqube.org/display/SONAR/Analyzing+Source+Code](https://docs.sonarqube.org/display/SONAR/Analyzing+Source+Code)
 
 In case the local SonarQube instance should be used, just update SonarQube server URL to `http://localhost:9000`.
