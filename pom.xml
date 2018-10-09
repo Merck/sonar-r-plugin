@@ -27,6 +27,7 @@
     <name>Sonar R Plugin</name>
     <description>SonarQube plugin for R language</description>
 
+    <url>https://github.com/Merck/sonar-r-plugin</url>
     <inceptionYear>2018</inceptionYear>
 
     <properties>
