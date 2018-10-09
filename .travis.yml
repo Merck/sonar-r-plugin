@@ -4,16 +4,25 @@ jdk:
 cache:
   directories:
   - "$HOME/.m2/repository"
+  - "$HOME/.sonar/cache"
+addons:
+  sonarcloud:
+    organization: merck
+    token:
+      secure: qYkJb7kF8Jsy7LVYjJLZXNY6ffJIE49MRUsu80aLW2rQzBzlT/yOdB8zSDchO5x1D+Wya+UTk+dzNKe4N/78+cWjAwc2Tabx84s2YXUb16ITrLY5qs8TEELuZ3nB9mCK+cC9dz+nvF7mNuRMWPoXPLTTKXg/tp1MSx2ffEFSQLC1zwcRBvCXsBkm7CG3Ezgdv4UyoOqdNEe8y1JdFUuPAJyPGKyHkyMH/PfNe93SJei5IFZjAuDHdP9SJVq6FOsY3qF+fFKDWQ0/tdHbZNJbELoRxDCpWuD3YGbNO7kxmCwnRDbHfwpOOHRQxO6WKjy+grNM720ggHGQxLsrA5TnDFYhUUQbdvCMix8QaUoKtf6EB0OVKnfrv01TJgwUgZELR4S+SUX9isnDZh83K3kqs/9J3YLdgrcFQndiRNL+5uypYfpeqWxmfdm53/Y0Ri7MLEeD1jegSGV6YfCqiAr3b8XQZ7I0+2LMpWI7dFVIKXupzjDqRZK1j82/Jocau5yMIYuiwxQx/006t7Z8Y9sqABmBLe+BoskPRA4WLDphsdhrAx+BowtONwEHzdw5wh0WO+2DaHk4R/pzQVPYzbC/RbZqr0uMj090uwtUm9v9P2D6g6c7vsU9H5htH0qwR4JtoAJQaHv4nzyvAYuiw8tzgLbkKAsVJ7mZWB90qLqaHzc=
+script:
+  # JaCoCo is used to have code coverage, the agent has to be activated
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 before_deploy:
   - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
   - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
 deploy:
   provider: releases
-  name: $project_version
+  name: "$project_version"
   api_key:
     secure: onfsrL37o8RTd40kgsc6vciz4Ong9kIkZz9d2Y8AWKDAOf1qj/lZ8xslbKXuoGzuOYc3Wy7pCWZ7JymJNIWyWLMz6xjVEFH2q0VUn0ToCApUoORdYe2+y7ZrmXPJgRUmciDYskeprJySElthOzt1/I3lJ9DopTxW5B/DbxEsLnRHtasmilmdWT5c+X7IKba4X87Q+nC7FJcLn8H6q+YYYi5u9HNqAfNYGOB2Hj3eYaCze/Dge6HJDOmjzpPrPE9Cp1BAl+VVAPRp7ctaMIu1ImEjd8CC6L49CLrxTGl/7Vi49bg9ukdp67Uw1MbyOoxHNLdowmhXalZCtj2vJ352+7Cc3206/1Ssi0I3Ok09EV/wGLDDgxvagg3EvFko10oXHchyxurFS1W5cTQ5eM+/YPi22A/1IZwfIKLOV4A9gowFMaf9gZmd4Kfxh1/+36SmbdR2lB2tCJ3681wI/tli0YvFmLFTN8f+8rpWonu/e5DPfTkgKUXjqY2bZg80h9LvmXb9wrDZZip6WDQK3WDuTvCjl2KVhD71eic/ze+bzbIfdwuhY4T1N0u0XNgmfXSAJIaMSJsPiLE5o3A2GPY1Pi9ljvkbHL0NPOWBNlaBuuhQIROogBT2hRdo1S72XU60/FRf8RXLrkuMMuVe+cXwOqi3CSJRh0uUMtIPVyzjQmY=
   skip_cleanup: true
-  file: 
+  file:
     - target/sonar-r-plugin-$project_version.jar
   on:
     repo: Merck/sonar-r-plugin
