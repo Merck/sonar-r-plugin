@@ -2,8 +2,6 @@ library(lintr)
 library(jsonlite)
 
 res <- lint("bad.R")
-x <- toJSON(as.data.frame(res))
+x <- toJSON(as.data.frame(res), pretty=TRUE)
 
-fileConn<-file("lintr_out.json")
-writeLines(x,fileConn)
-close(fileConn)
+cat(x, file="lintr_out.json")
