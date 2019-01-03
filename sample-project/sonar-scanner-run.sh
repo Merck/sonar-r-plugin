@@ -19,7 +19,7 @@
 set -euo pipefail
 
 SONAR_SCANNER_VERSION=3.2.0.1227
-URL="https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-macosx.zip"
+URL="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-macosx.zip"
 
 # Resolve where script is stored (symlinks too)
 SOURCE="${BASH_SOURCE[0]}"

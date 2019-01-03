@@ -16,8 +16,8 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-SONAR_NAME=sonarqube-6.7.4
-URL="https://sonarsource.bintray.com/Distribution/sonarqube/${SONAR_NAME}.zip"
+SONAR_NAME=sonarqube-6.7.6
+URL="https://binaries.sonarsource.com/Distribution/sonarqube/${SONAR_NAME}.zip"
 
 set -euo pipefail
 

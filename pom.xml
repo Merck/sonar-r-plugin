@@ -87,7 +87,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="${project.basedir}/target/${project.artifactId}-${project.version}.jar" tofile="${project.basedir}/.sonar/sonarqube-6.7.4/extensions/plugins/${project.artifactId}-${project.version}.jar" />
+                                <copy file="${project.basedir}/target/${project.artifactId}-${project.version}.jar" tofile="${project.basedir}/.sonar/sonarqube-6.7.6/extensions/plugins/${project.artifactId}-${project.version}.jar" />
                             </target>
                         </configuration>
                         <goals>
