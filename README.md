@@ -49,3 +49,8 @@ For example in `sonar-project.properties`:
 ```properties
 sonar.host.url=http://localhost:9000
 ```
+
+Release Process
+---------------
+
+TBD
