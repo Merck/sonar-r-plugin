@@ -25,5 +25,4 @@ deploy:
   file:
     - target/sonar-r-plugin-$project_version.jar
   on:
-    repo: Merck/sonar-r-plugin
-    branch: master
+    tags: true
