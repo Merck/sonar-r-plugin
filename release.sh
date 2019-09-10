@@ -20,7 +20,7 @@ git commit -a -m "Update release ${RELEASE_VERSION} in POM"
 # release tag on the same commit
 git tag "${RELEASE_VERSION}"
 
-git push origin release/v${RELEASE_VERSION} --tags
+git push origin release/v${RELEASE_VERSION} --tags -n
 
 echo "Setting new development version"
 
@@ -34,7 +34,7 @@ DEVELOPMENT_VERSION=$(./mvnw help:evaluate -N -Dexpression=project.version|grep 
 
 echo "New development: ${DEVELOPMENT_VERSION}"
 #
-git commit -a -m "Set new development version to ${RELEASE_VERSION}"
+git commit -a -m "Set new development version to ${DEVELOPMENT_VERSION}"
 
 #
-git push
+git push -n
