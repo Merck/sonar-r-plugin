@@ -37,6 +37,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 public class LintRSensor implements Sensor {
 
@@ -56,20 +57,25 @@ public class LintRSensor implements Sensor {
     @Override
     public void execute(SensorContext context) {
         LOGGER.info("Running sensor for LintR");
-        final String lintrOutputFile = context.config().get(SonarRPlugin.PROPERTY_LINTR_OUTPUT_FILE).get();
-        byte[] content;
-        try {
-            content = Files.readAllBytes(Paths.get(lintrOutputFile));
-        } catch (IOException e) {
-            LOGGER.warn("Cannot read " + lintrOutputFile + " file, skipping", e);
-            return;
-        }
-        String jsonContent = new String(content, StandardCharsets.UTF_8);
-        JsonOutputParser parser = new JsonOutputParser();
-        List<LintRIssue> issues = parser.parse(jsonContent);
-        LOGGER.info("Issues found by LintR: " + issues.size());
+        Optional<String> lintrOutputFileProperty = context.config().get(SonarRPlugin.PROPERTY_LINTR_OUTPUT_FILE);
+        if (!lintrOutputFileProperty.isPresent()) {
+            LOGGER.warn("LintR output file property is not configured properly, skipping");
+        } else {
+            final String lintrOutputFile = lintrOutputFileProperty.get();
+            byte[] content;
+            try {
+                content = Files.readAllBytes(Paths.get(lintrOutputFile));
+            } catch (IOException e) {
+                LOGGER.warn("Cannot read " + lintrOutputFile + " file, skipping", e);
+                return;
+            }
+            String jsonContent = new String(content, StandardCharsets.UTF_8);
+            JsonOutputParser parser = new JsonOutputParser();
+            List<LintRIssue> issues = parser.parse(jsonContent);
+            LOGGER.info("Issues found by LintR: " + issues.size());
 
-        issues.forEach(x -> processIssue(context, x));
+            issues.forEach(x -> processIssue(context, x));
+        }
     }
 
     protected void processIssue(final SensorContext context, final LintRIssue issue) {
