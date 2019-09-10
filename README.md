@@ -49,3 +49,22 @@ For example in `sonar-project.properties`:
 ```properties
 sonar.host.url=http://localhost:9000
 ```
+
+Release Process
+---------------
+- derive release version from current SNAPSHOT in POM
+- create new release branch
+  - commit release version into POM
+  - create tag
+  - push
+- generate new development version by increasing last number
+- checkout master
+  - commit new development version
+  - push
+
+Script for the above steps:
+```
+./release.sh
+```
+
+Travis CI build does the release process in Github.
