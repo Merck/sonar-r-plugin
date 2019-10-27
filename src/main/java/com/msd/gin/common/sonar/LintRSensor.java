@@ -28,6 +28,7 @@ import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.batch.sensor.issue.NewIssue;
 import org.sonar.api.batch.sensor.issue.NewIssueLocation;
+import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -36,6 +37,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,6 +77,18 @@ public class LintRSensor implements Sensor {
             LOGGER.info("Issues found by LintR: " + issues.size());
 
             issues.forEach(x -> processIssue(context, x));
+
+            // add LinesOfCode value to get "overview tab" working in SonarQube
+            List<InputFile> inputFiles = new ArrayList<>();
+            fileSystem.inputFiles(
+                fileSystem.predicates().and(
+                    fileSystem.predicates().hasType(InputFile.Type.MAIN),
+                    fileSystem.predicates().hasLanguage(RLanguage.KEY)))
+                .forEach(inputFiles::add);
+            for (InputFile inputFile : inputFiles) {                
+                LOGGER.info("Adding Lines Of Code " + inputFile.lines() + " for " + inputFile.filename());
+                context.<Integer>newMeasure().withValue(inputFile.lines()).forMetric(CoreMetrics.NCLOC).on(inputFile).save();
+            }
         }
     }
 
