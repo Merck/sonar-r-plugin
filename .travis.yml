@@ -11,8 +11,9 @@ addons:
     token:
       secure: qYkJb7kF8Jsy7LVYjJLZXNY6ffJIE49MRUsu80aLW2rQzBzlT/yOdB8zSDchO5x1D+Wya+UTk+dzNKe4N/78+cWjAwc2Tabx84s2YXUb16ITrLY5qs8TEELuZ3nB9mCK+cC9dz+nvF7mNuRMWPoXPLTTKXg/tp1MSx2ffEFSQLC1zwcRBvCXsBkm7CG3Ezgdv4UyoOqdNEe8y1JdFUuPAJyPGKyHkyMH/PfNe93SJei5IFZjAuDHdP9SJVq6FOsY3qF+fFKDWQ0/tdHbZNJbELoRxDCpWuD3YGbNO7kxmCwnRDbHfwpOOHRQxO6WKjy+grNM720ggHGQxLsrA5TnDFYhUUQbdvCMix8QaUoKtf6EB0OVKnfrv01TJgwUgZELR4S+SUX9isnDZh83K3kqs/9J3YLdgrcFQndiRNL+5uypYfpeqWxmfdm53/Y0Ri7MLEeD1jegSGV6YfCqiAr3b8XQZ7I0+2LMpWI7dFVIKXupzjDqRZK1j82/Jocau5yMIYuiwxQx/006t7Z8Y9sqABmBLe+BoskPRA4WLDphsdhrAx+BowtONwEHzdw5wh0WO+2DaHk4R/pzQVPYzbC/RbZqr0uMj090uwtUm9v9P2D6g6c7vsU9H5htH0qwR4JtoAJQaHv4nzyvAYuiw8tzgLbkKAsVJ7mZWB90qLqaHzc=
 script:
+  # Sonar analysis cannot run on external PullRequests
   # JaCoCo is used to have code coverage, the agent has to be activated
-  - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar; fi'
 before_deploy:
   - ./mvnw help:evaluate -N -Dexpression=project.version|grep -v '\['
   - export project_version=$(./mvnw help:evaluate -N -Dexpression=project.version|grep -v '\[')
