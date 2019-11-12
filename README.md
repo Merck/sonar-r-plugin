@@ -6,6 +6,8 @@ Sonar R Plugin
 Adds support for [R language](https://www.r-project.org/) into SonarQube. Currently, it uses output from [lintr tool](https://github.com/jimhester/lintr)
 which is processed by the plugin and uploaded into SonarQube server.
 
+![Sample Screenshot](images/sample-screen1.png)
+
 Features
 --------
 - reporting issues found by LintR (by processing its output)
