@@ -22,7 +22,7 @@ Extending SonarQube
 
 Run SonarQube Locally with the Plugin
 -------------------------------------
-Installed Java 8 is required.
+Installed **Java 11** is required to run SonarQube server.
 
 ```bash
 # build plugin and put it into SonarQube instance
