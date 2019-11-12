@@ -84,12 +84,14 @@ public class LintRSensor implements Sensor {
                 fileSystem.predicates().and(
                     fileSystem.predicates().hasType(InputFile.Type.MAIN),
                     fileSystem.predicates().hasLanguage(RLanguage.KEY)))
-                .forEach(inputFiles::add);
-            for (InputFile inputFile : inputFiles) {                
-                LOGGER.info("Adding Lines Of Code " + inputFile.lines() + " for " + inputFile.filename());
-                context.<Integer>newMeasure().withValue(inputFile.lines()).forMetric(CoreMetrics.NCLOC).on(inputFile).save();
-            }
+                .forEach(inputFile -> coundLinesForFile(context, inputFile));
         }
+    }
+
+    public void coundLinesForFile(SensorContext context, InputFile inputFile) {
+        int linesCount = inputFile.lines();
+        LOGGER.info("Adding Lines Of Code " + linesCount + " for " + inputFile.filename());
+        context.<Integer>newMeasure().withValue(linesCount).forMetric(CoreMetrics.NCLOC).on(inputFile).save();
     }
 
     protected void processIssue(final SensorContext context, final LintRIssue issue) {
