@@ -84,11 +84,11 @@ public class LintRSensor implements Sensor {
                 fileSystem.predicates().and(
                     fileSystem.predicates().hasType(InputFile.Type.MAIN),
                     fileSystem.predicates().hasLanguage(RLanguage.KEY)))
-                .forEach(inputFile -> coundLinesForFile(context, inputFile));
+                .forEach(inputFile -> countLinesForFile(context, inputFile));
         }
     }
 
-    public void coundLinesForFile(SensorContext context, InputFile inputFile) {
+    public void countLinesForFile(SensorContext context, InputFile inputFile) {
         int linesCount = inputFile.lines();
         LOGGER.info("Adding Lines Of Code " + linesCount + " for " + inputFile.filename());
         context.<Integer>newMeasure().withValue(linesCount).forMetric(CoreMetrics.NCLOC).on(inputFile).save();
@@ -102,7 +102,11 @@ public class LintRSensor implements Sensor {
                         fileSystem.predicates().hasType(InputFile.Type.MAIN)));
 
         if (inputFile != null) {
-            saveIssue(context, inputFile, issue.getLineNumber(), issue.getColumnNumber(), issue.getLinter(), issue.getMessage());
+            try {
+                saveIssue(context, inputFile, issue.getLineNumber(), issue.getColumnNumber(), issue.getLinter(), issue.getMessage());
+            } catch (Exception e) {
+                LOGGER.error("Cannot save issue " + issue, e);
+            }
         } else {
             LOGGER.error("Not able to find a InputFile with " + issue.getFilename());
         }
@@ -117,11 +121,15 @@ public class LintRSensor implements Sensor {
                 .on(inputFile)
                 .message(message);
         if (line > 0) {
+            TextRange lineRange = inputFile.selectLine(line);
+            int startIndex = Math.max(column - 1, lineRange.start().lineOffset());
+            int endIndex = Math.min(column, lineRange.end().lineOffset());
             TextRange tr;
-            if (column == 1) {
-                tr = inputFile.selectLine(line);
+            if (startIndex < endIndex) {
+                tr = inputFile.newRange(line, startIndex, line, endIndex);
             } else {
-                tr = inputFile.newRange(line, column - 1, line, column);
+                LOGGER.warn("Start and end index cannot be properly computed for column {} on line {}, putting issue on line", column, line);
+                tr = inputFile.selectLine(line);
             }
             primaryLocation.at(tr);
         }
