@@ -1,7 +1,2 @@
-library(lintr)
-library(jsonlite)
 
-res <- lint("bad.R")
-x <- toJSON(as.data.frame(res), pretty=TRUE)
-
-cat(x, file="lintr_out.json")
+cat(jsonlite::toJSON(as.data.frame(lintr::lint_package()), pretty = TRUE), file = "lintr_out.json")

@@ -1,0 +1,5 @@
+Package: sample-project
+Title: Sample Project for LintR
+Version: 0.1
+Authors: kmoco2am
+Description: This package contains all "bad" sources for LintR
