@@ -1,1 +1,263 @@
-[{"filename":"bad.R","line_number":1,"column_number":5,"type":"style","message":"Use <-, not =, for assignment.","line":"fun = function(one)","linter":"assignment_linter"},{"filename":"bad.R","line_number":2,"column_number":1,"type":"style","message":"Opening curly braces should never go on their own line and should always be followed by a new line.","line":"{","linter":"open_curly_linter"},{"filename":"bad.R","line_number":3,"column_number":3,"type":"style","message":"Words within variable and function names should be separated by '_' rather than '.'.","line":"  one.plus.one <- oen + 1","linter":"multiple_dots_linter"},{"filename":"bad.R","line_number":3,"column_number":3,"type":"warning","message":"local variable ‘one.plus.one’ assigned but may not be used","line":"  one.plus.one <- oen + 1","linter":"object_usage_linter"},{"filename":"bad.R","line_number":3,"column_number":19,"type":"warning","message":"no visible binding for global variable ‘oen’, Did you mean 'one'?","line":"  one.plus.one <- oen + 1","linter":"object_usage_linter"},{"filename":"bad.R","line_number":4,"column_number":11,"type":"style","message":"Variable and function names should be all lowercase.","line":"  four <- newVar <- matrix(1:10,nrow = 2)","linter":"camel_case_linter"},{"filename":"bad.R","line_number":4,"column_number":11,"type":"warning","message":"local variable ‘newVar’ assigned but may not be used","line":"  four <- newVar <- matrix(1:10,nrow = 2)","linter":"object_usage_linter"},{"filename":"bad.R","line_number":4,"column_number":33,"type":"style","message":"Commas should always have a space after.","line":"  four <- newVar <- matrix(1:10,nrow = 2)","linter":"commas_linter"},{"filename":"bad.R","line_number":5,"column_number":7,"type":"style","message":"Do not place spaces around code in parentheses or square brackets.","line":"  four[ 1, ]","linter":"spaces_inside_linter"},{"filename":"bad.R","line_number":6,"column_number":10,"type":"style","message":"Only use double-quotes.","line":"  txt <- 'hi'","linter":"single_quotes_linter"},{"filename":"bad.R","line_number":7,"column_number":3,"type":"warning","message":"local variable ‘three’ assigned but may not be used","line":"  three <- two+ 1","linter":"object_usage_linter"},{"filename":"bad.R","line_number":7,"column_number":12,"type":"warning","message":"no visible binding for global variable ‘two’, Did you mean 'txt'?","line":"  three <- two+ 1","linter":"object_usage_linter"},{"filename":"bad.R","line_number":7,"column_number":15,"type":"style","message":"Put spaces around all infix operators.","line":"  three <- two+ 1","linter":"infix_spaces_linter"},{"filename":"bad.R","line_number":8,"column_number":5,"type":"style","message":"Place a space before left parenthesis, except in a function call.","line":"  if(txt == 'hi') 4","linter":"spaces_left_parentheses_linter"},{"filename":"bad.R","line_number":8,"column_number":13,"type":"style","message":"Only use double-quotes.","line":"  if(txt == 'hi') 4","linter":"single_quotes_linter"},{"filename":"bad.R","line_number":9,"column_number":4,"type":"style","message":"Closing curly-braces should always be on their own line, unless it's followed by an else.","line":"  5}  ","linter":"closed_curly_linter"},{"filename":"bad.R","line_number":9,"column_number":5,"type":"style","message":"Trailing whitespace is superfluous.","line":"  5}  ","linter":"trailing_whitespace_linter"},{"filename":"bad.R","line_number":10,"column_number":1,"type":"error","message":"unexpected end of input","line":"{","linter":"error"}]
+[
+  {
+    "filename": "R/bad.R",
+    "line_number": 1,
+    "column_number": 5,
+    "type": "style",
+    "message": "Use <-, not =, for assignment.",
+    "line": "fun = function(one)",
+    "linter": "assignment_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 3,
+    "column_number": 3,
+    "type": "style",
+    "message": "Variable and function name style should be snake_case.",
+    "line": "  one.plus.one <- oen + 1",
+    "linter": "object_name_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 3,
+    "column_number": 26,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "  one.plus.one <- oen + 1",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 4,
+    "column_number": 11,
+    "type": "style",
+    "message": "Variable and function name style should be snake_case.",
+    "line": "  four <- newVar <- matrix(1:10,nrow = 2)",
+    "linter": "object_name_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 4,
+    "column_number": 29,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "  four <- newVar <- matrix(1:10,nrow = 2)",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 4,
+    "column_number": 32,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "  four <- newVar <- matrix(1:10,nrow = 2)",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 4,
+    "column_number": 33,
+    "type": "style",
+    "message": "Commas should always have a space after.",
+    "line": "  four <- newVar <- matrix(1:10,nrow = 2)",
+    "linter": "commas_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 4,
+    "column_number": 41,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "  four <- newVar <- matrix(1:10,nrow = 2)",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 5,
+    "column_number": 8,
+    "type": "style",
+    "message": "Do not place spaces around code in parentheses or square brackets.",
+    "line": "  four[ 1, ]",
+    "linter": "spaces_inside_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 5,
+    "column_number": 10,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "  four[ 1, ]",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 6,
+    "column_number": 10,
+    "type": "style",
+    "message": "Only use double-quotes.",
+    "line": "  txt <- 'hi'",
+    "linter": "single_quotes_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 7,
+    "column_number": 15,
+    "type": "style",
+    "message": "Put spaces around all infix operators.",
+    "line": "  three <- two+ 1",
+    "linter": "infix_spaces_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 7,
+    "column_number": 18,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "  three <- two+ 1",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 8,
+    "column_number": 5,
+    "type": "style",
+    "message": "Place a space before left parenthesis, except in a function call.",
+    "line": "  if(txt == 'hi') 4",
+    "linter": "spaces_left_parentheses_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 8,
+    "column_number": 13,
+    "type": "style",
+    "message": "Only use double-quotes.",
+    "line": "  if(txt == 'hi') 4",
+    "linter": "single_quotes_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 8,
+    "column_number": 20,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "  if(txt == 'hi') 4",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 9,
+    "column_number": 4,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "  5}",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/bad.R",
+    "line_number": 10,
+    "column_number": 1,
+    "type": "error",
+    "message": "unexpected end of input",
+    "line": "{",
+    "linter": "error"
+  },
+  {
+    "filename": "R/complexity.R",
+    "line_number": 1,
+    "column_number": 1,
+    "type": "style",
+    "message": "functions should have cyclomatic complexity of less than 2, this has 10.",
+    "line": "complexity <- function(x) {",
+    "linter": "cyclocomp_linter"
+  },
+  {
+    "filename": "R/complexity.R",
+    "line_number": 2,
+    "column_number": 12,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "  if (x > 0) {",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/complexity.R",
+    "line_number": 3,
+    "column_number": 15,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "    if (x > 10) {",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/complexity.R",
+    "line_number": 4,
+    "column_number": 17,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "      if (x > 20) {",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/complexity.R",
+    "line_number": 5,
+    "column_number": 19,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "        x <- x / 2",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/complexity.R",
+    "line_number": 13,
+    "column_number": 16,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "    if (x < -10) {",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/complexity.R",
+    "line_number": 14,
+    "column_number": 18,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "      if (x < -20) {",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/complexity.R",
+    "line_number": 15,
+    "column_number": 19,
+    "type": "style",
+    "message": "Integers should not be implicit. Use the form 1L for integers or 1.0 for doubles.",
+    "line": "        x <- x * 2",
+    "linter": "implicit_integer_linter"
+  },
+  {
+    "filename": "R/my_bad.R",
+    "line_number": 1,
+    "column_number": 5,
+    "type": "style",
+    "message": "Use <-, not =, for assignment.",
+    "line": "fun = function(one) {",
+    "linter": "assignment_linter"
+  },
+  {
+    "filename": "R/my_bad.R",
+    "line_number": 2,
+    "column_number": 2,
+    "type": "style",
+    "message": "Use TRUE instead of the symbol T.",
+    "line": "T",
+    "linter": "T_and_F_symbol_linter"
+  },
+  {
+    "filename": "R/my_bad.R",
+    "line_number": 3,
+    "column_number": 2,
+    "type": "style",
+    "message": "Use FALSE instead of the symbol F.",
+    "line": "F",
+    "linter": "T_and_F_symbol_linter"
+  }
+]
