@@ -258,5 +258,125 @@
         <remediationFunction>LINEAR</remediationFunction>
         <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
     </rule>
+    <rule>
+        <key>T_and_F_symbol_linter</key>
+        <name>T and F Symbol</name>
+        <description>
+            <![CDATA[Avoid the symbols T and F (for TRUE and FALSE)]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>cyclocomp_linter</key>
+        <name>Cyclomatic Complexity</name>
+        <description>
+            <![CDATA[Check for overly complicated expressions]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>equals_na_linter</key>
+        <name>Equals to NA</name>
+        <description>
+            <![CDATA[Checks for x == NA]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>extraction_operator_linter</key>
+        <name>Extraction Operator Usage</name>
+        <description>
+            <![CDATA[Check that the `[[` operator is used when extracting a single element from an object, not `[` (subsetting) nor `$` (interactive use)]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>function_left_parentheses_linter</key>
+        <name>Function Left Parentheses</name>
+        <description>
+            <![CDATA[Check that all left parentheses in a function call do not have spaces before them]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>implicit_integer_linter</key>
+        <name>Implicit Integer</name>
+        <description>
+            <![CDATA[Check that integers are explicitly typed using the form 1L instead of 1]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>paren_brace_linter</key>
+        <name>Space Before Curly Brace</name>
+        <description>
+            <![CDATA[Check that there is a space between right parenthesis and an opening curly brace]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>pipe_continuation_linter</key>
+        <name>Pipe Continuation</name>
+        <description>
+            <![CDATA[Check that each step in a pipeline is on a new line, or the entire pipe fits on one line]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>seq_linter</key>
+        <name>Sequences</name>
+        <description>
+            <![CDATA[Check for 1:length(...), 1:nrow(...), 1:ncol(...), 1:NROW(...) and 1:NCOL(...) expressions. These often cause bugs when the right hand side is zero. It is safer to use \link[base]{seq_len or \link[base]{seq_along instead]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
+    <rule>
+        <key>unneeded_concatenation_linter</key>
+        <name>Unneeded Concatentation</name>
+        <description>
+            <![CDATA[Check that the c function is not used without arguments nor with a single constant]]>
+        </description>
+        <severity>MINOR</severity>
+        <type>CODE_SMELL</type>
+        <tag>lintr</tag>
+        <remediationFunction>LINEAR</remediationFunction>
+        <remediationFunctionGapMultiplier>10min</remediationFunctionGapMultiplier>
+    </rule>
 
 </rules>
