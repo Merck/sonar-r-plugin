@@ -79,3 +79,21 @@ trailing_whitespace <- function() {
 unneeded_concatenation <- function() {
     c()
 }
+
+
+spaces_around_code_in_parenthesis <- function() {
+    x <- c(1L, 2L, 3L)
+    x[[ 1L ]]
+}
+
+
+use_double_quotes <- function() {
+    'Hello World'
+}
+
+
+space_before_left_parenthesis <- function() {
+    if(TRUE){
+        1L
+    }
+}
