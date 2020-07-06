@@ -27,11 +27,6 @@ objectNamingStyle <- function() {
 }
 
 
-objects_with_incredibly_long_names_in_fact_so_long_it_does_not_make_sense <- function() {
-
-}
-
-
 equals_na <- function() {
     x <- NA
     if (x == NA) {}
@@ -57,11 +52,6 @@ implicit_integer <- function() {
 
 infix_operator_spaces <- function() {
     1L+2.0*3L-4L/5L%/%6.0
-}
-
-
-line_length <- function() {
-    #Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud...
 }
 
 
