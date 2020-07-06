@@ -23,7 +23,7 @@ commented_code <- function() {
 
 
 objectNamingStyle <- function() {
-
+    my.var <- 0L
 }
 
 
@@ -39,7 +39,7 @@ equals_na <- function() {
 
 
 extraction_operator <- function() {
-    x <- list(one=1, two=2)
+    x <- list(one = 1L, two = 2L)
     x[1L]
     x$one
 }
@@ -56,7 +56,7 @@ implicit_integer <- function() {
 
 
 infix_operator_spaces <- function() {
-    1+2*3-4/5%/%6
+    1L+2.0*3L-4L/5L%/%6.0
 }
 
 
@@ -70,8 +70,8 @@ open_curly_brace <- function()
 
 
 pipe_continuation <- function() {
-    x <- 2
-    x %>% max() %>% min() %>%
+    x <- 2.0
+    x %>% max()%>% min() %>%
         mean()
 }
 
