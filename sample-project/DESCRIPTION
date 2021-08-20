@@ -1,5 +1,10 @@
-Package: sample-project
+Package: sampleproject
 Title: Sample Project for LintR
 Version: 0.1
-Authors: kmoco2am
+Author: Ondrej Kmoch <ondrej.kmoch@merck.com>
+Maintainer: Ondrej Kmoch <ondrej.kmoch@merck.com>
+License: BSD
 Description: This package contains all "bad" sources for LintR
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
