@@ -25,9 +25,7 @@ https_proxy=http://proxy.company.com:8080
 ```
 
 ```bash
-Rscript -e 'install.packages("lintr")'
-Rscript -e 'install.packages("devtools")'
-Rscript -e 'install.packages("roxygen2")'
+Rscript -e 'install.packages(c("lintr","dplyr","devtools","roxygen2","covr","rcmdcheck","testthat"))'
 ```
 
 Run LintR
@@ -38,6 +36,15 @@ Rscript run_lintr.R
 ```
 
 `lintr_out.json` is created by the script.
+
+Run Code Coverage
+-----------------
+```bash
+Rscript run_cov.R
+```
+
+`covr_out.json` is created by the script.
+
 
 Run Sonar Scanner
 -----------------
