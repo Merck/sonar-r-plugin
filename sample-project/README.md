@@ -28,6 +28,13 @@ https_proxy=http://proxy.company.com:8080
 Rscript -e 'install.packages(c("lintr","dplyr","devtools","roxygen2","covr","rcmdcheck","testthat"))'
 ```
 
+Check the project
+-----------------
+Check the project is valid R project with all well-known best practices and guidelines:
+```bash
+Rscript -e 'devtools::check()'
+```
+
 Run LintR
 ---------
 Get LintR output into supported JSON format:
