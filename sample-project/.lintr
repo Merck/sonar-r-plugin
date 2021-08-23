@@ -32,4 +32,7 @@ linters: list(
               undesirable_operator_linter,
               unneeded_concatenation_linter
             )
-exclusions: list("run_lintr.R")
+exclusions: list(
+                "run_lintr.R",
+                "run_cov.R"
+               )
