@@ -3,3 +3,5 @@
 .sonar/
 target/
 .scannerwork
+
+sample-project/covr_sonarqube.xml
