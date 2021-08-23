@@ -7,12 +7,12 @@ cache:
   - "$HOME/.sonar/cache"
 addons:
   sonarcloud:
-    organization: merck
+    organization: "merck"
     token:
-      secure: "psLD7rBrt8SB7dC/F0H+yT/qDo1uNM5Nr3kG18G2SsqM7RZyl57/MWIOxEw9q/95LbJPAPfHdLxtm5808Ws7ePezlODxEDLvqCDH8WLiBdJd0inUCgrEKUOu2gcyOeX+yWN5I+gXdaZ98OAyB5aolYCROF1OAbTjhQq+VAOEeAaSABvZjVcztUUpJDvNxhIKGW36W9I/1a0GZV3XK0QtABgAzeB8W4Gl5TKumW7MEoItiyuQnvNW6PpDSMUCEoknAgU5aC9M6fHOxWLr2n4V1qij9oqYpHLQf3+BVibdqU04JShF6HhG8O8TVNvF3WENrKqK2KBnLr4VJHhGWElRRNkgz40DGC5NcW0IVP56/AxbmT4Y/2jAhT9FfBKD7/2wZyzYxQ2TGZOCqGxWeLqw3zjmWkUSWh1yp3CN/8bgxbDh7nQNI7OK3nv+gYxY4CJX1XklOBkkfhrc760gba9Of/v3P4WoBDevjc4SJwAkMnho04zS7PkyRtcbYQvUuLMxjCrO5CBVWjUQqV0ZqQrrPWsh7siAB5dmZEJhRXbPkpuz4CJEi/nwwh/EELjM3zarWswXiEobnL51irsUrTsjQ1rSf5Yh/P7ggzkyxO0PSymXEvQyCuRqtf2+1Lqk3GIxGGAoTZkRFhbibwteDo5hcZLmt0otLlV3+tks76IHs3A="
+      secure: "JbWEVfh1h0gQ3rkTenxjjVd7KkIrmtBrtpRCfiFH9juTLbRSDmmGZ6G8YN+3OPCyfml2+JWmkNCM0glB9uvcW3bRKoHajlRs//ineF078+fUEa0x1kL5GQB0pG2P3qcUu+frbuyJSakzSEGMFWl3idWgJU6zUjxIk9wc/hFZ0K0Rt7SlTnalx6N0/JmqWHJfX+ZBq1XUnwjNZ3LKp491A8nzqLIDjepNUXJWdjPFg8SgfiFQXvqDrfzm320GlMtGUFa1gIb7A1Atb/gJDRyIhFsEk3YEW9dQM9ujhmMj2PJEp6TaFBNaEE8NUE/n8BvXNRf5PABHpN2NZc3Zt4O7Qndkg5R2wZKbswnoCMBpbDb4elS4YNlIZciYgQtFizfYQn9XqZGpXDkcfOP+/6pSrp6hMfWomv6LJP6X8zly7ZiBBJI3tWvlCkcoqaqvOygmU0Uuu5aFU4ZMkNTv6f9O3aBJ9XNUkXoBRZ1t5JJYcAlGtgAoaVKzY/zFHkxuvKwRYbesPaPc1FIOKYs8Q6dFLih4/zq0Ra53bNWAmQ0iDOk6gODYBt6Q8zhYbHSAl1OlDa/cB/NOE2Or6gdW1r5tQnv7ZuD9YssNWxGSgsiKk9c5dwg6wyfaI0igbddotLq3OpF/e04A+HGYqK4CfeVeuQVKtKJsGEn7MJ0nxM1t4p0="
 script:
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent
-  package sonar:sonar; fi
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 before_deploy:
 - "./mvnw help:evaluate -N -Dexpression=project.version|grep -v '\\['"
 - export project_version=$(./mvnw help:evaluate -N -Dexpression=project.version|grep
