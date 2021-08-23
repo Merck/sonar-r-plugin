@@ -1,6 +1,6 @@
 Sonar R Plugin
 ==============
-[![Build Status](https://travis-ci.org/Merck/sonar-r-plugin.svg?branch=master)](https://travis-ci.org/Merck/sonar-r-plugin)
+[![Build Status](https://travis-ci.com/Merck/sonar-r-plugin.svg?branch=master)](https://travis-ci.com/Merck/sonar-r-plugin)
 [![SonarCloud Status](https://sonarcloud.io/api/project_badges/measure?project=com.msd.gin.common.sonar:sonar-r-plugin&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.msd.gin.common.sonar:sonar-r-plugin)
 
 Adds support for [R language](https://www.r-project.org/) into SonarQube. Currently, it uses output from [lintr tool](https://github.com/jimhester/lintr)
