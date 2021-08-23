@@ -3,5 +3,6 @@
 .sonar/
 target/
 .scannerwork
+.DS_Store
 
 sample-project/covr_sonarqube.xml
