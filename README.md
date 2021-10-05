@@ -20,7 +20,7 @@ Planned Features
 
 Extending SonarQube
 -------------------
-[https://docs.sonarqube.org/display/DEV/Extension+Guide](https://docs.sonarqube.org/display/DEV/Extension+Guide)
+[Developing a plugin on SonarQube official documentation](https://docs.sonarqube.org/latest/extend/developing-plugin/).
 
 Run SonarQube Locally with the Plugin
 -------------------------------------
