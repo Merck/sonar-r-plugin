@@ -22,7 +22,7 @@
 
     <groupId>com.msd.gin.common.sonar</groupId>
     <artifactId>sonar-r-plugin</artifactId>
-    <version>0.2.2-SNAPSHOT</version>
+    <version>0.2.2</version>
     <packaging>sonar-plugin</packaging>
 
     <name>Sonar R Plugin</name>
