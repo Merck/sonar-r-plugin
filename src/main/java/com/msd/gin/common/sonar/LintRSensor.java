@@ -28,6 +28,7 @@ import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.batch.sensor.issue.NewIssue;
 import org.sonar.api.batch.sensor.issue.NewIssueLocation;
+import org.sonar.api.internal.apachecommons.lang.StringUtils;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
@@ -37,7 +38,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,23 +64,10 @@ public class LintRSensor implements Sensor {
         if (!lintrOutputFileProperty.isPresent()) {
             LOGGER.warn("LintR output file property is not configured properly, skipping");
         } else {
-            final String lintrOutputFile = lintrOutputFileProperty.get();
-            byte[] content;
-            try {
-                content = Files.readAllBytes(Paths.get(lintrOutputFile));
-            } catch (IOException e) {
-                LOGGER.warn("Cannot read " + lintrOutputFile + " file, skipping", e);
-                return;
-            }
-            String jsonContent = new String(content, StandardCharsets.UTF_8);
-            JsonOutputParser parser = new JsonOutputParser();
-            List<LintRIssue> issues = parser.parse(jsonContent);
-            LOGGER.info("Issues found by LintR: " + issues.size());
-
+            List<LintRIssue> issues = readLintrOutputFile(lintrOutputFileProperty.get());
             issues.forEach(x -> processIssue(context, x));
 
             // add LinesOfCode value to get "overview tab" working in SonarQube
-            List<InputFile> inputFiles = new ArrayList<>();
             fileSystem.inputFiles(
                 fileSystem.predicates().and(
                     fileSystem.predicates().hasType(InputFile.Type.MAIN),
@@ -87,6 +75,26 @@ public class LintRSensor implements Sensor {
                 .forEach(inputFile -> countLinesForFile(context, inputFile));
         }
     }
+
+    public List<LintRIssue> readLintrOutputFile(String lintrOutputFile) {
+        byte[] content;
+        try {
+            content = Files.readAllBytes(Paths.get(lintrOutputFile));
+        } catch (IOException e) {
+            LOGGER.warn("Cannot read " + lintrOutputFile + " file, skipping", e);
+            return Collections.emptyList();
+        }
+        String jsonContent = new String(content, StandardCharsets.UTF_8);
+        if (StringUtils.isBlank(jsonContent)) {
+            LOGGER.warn("LintR output file " + lintrOutputFile + " is empty, no issues will be reported.");
+            return Collections.emptyList();
+        }
+        JsonOutputParser parser = new JsonOutputParser();
+        List<LintRIssue> issues = parser.parse(jsonContent);
+        LOGGER.info("Issues found by LintR: " + issues.size());
+        return issues;
+    }
+
 
     public void countLinesForFile(SensorContext context, InputFile inputFile) {
         int linesCount = inputFile.lines();
