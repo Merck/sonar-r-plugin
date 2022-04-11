@@ -28,7 +28,6 @@ import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.batch.sensor.issue.NewIssue;
 import org.sonar.api.batch.sensor.issue.NewIssueLocation;
-import org.sonar.api.internal.apachecommons.lang.StringUtils;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
@@ -85,7 +84,7 @@ public class LintRSensor implements Sensor {
             return Collections.emptyList();
         }
         String jsonContent = new String(content, StandardCharsets.UTF_8);
-        if (StringUtils.isBlank(jsonContent)) {
+        if (jsonContent == null || "".equals(jsonContent.trim())) {
             LOGGER.warn("LintR output file " + lintrOutputFile + " is empty, no issues will be reported.");
             return Collections.emptyList();
         }
