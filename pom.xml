@@ -22,13 +22,13 @@
 
     <groupId>com.msd.gin.common.sonar</groupId>
     <artifactId>sonar-r-plugin</artifactId>
-    <version>0.2.3-SNAPSHOT</version>
+    <version>0.3.0-SNAPSHOT</version>
     <packaging>sonar-plugin</packaging>
 
     <name>Sonar R Plugin</name>
     <description>SonarQube plugin for R language</description>
 
-    <url>https://github.com/Merck/sonar-r-plugin</url>
+    <url>https://github.com/kmoco2am/sonar-r-plugin</url>
     <inceptionYear>2018</inceptionYear>
 
     <properties>
