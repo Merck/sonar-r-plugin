@@ -8,6 +8,7 @@ A few hints for non-R developers to get environment for LintR up-and-running eas
 
 ```bash
 brew install r
+brew install fribidi
 ```
 
 Content for `~/.Rprofile`:

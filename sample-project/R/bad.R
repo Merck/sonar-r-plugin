@@ -1,5 +1,3 @@
-library(dplyr)
-
 
 T_and_F <- function() {
     F
