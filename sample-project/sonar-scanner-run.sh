@@ -18,7 +18,7 @@
 
 set -euo pipefail
 
-SONAR_SCANNER_VERSION=4.7.0.2747
+SONAR_SCANNER_VERSION=5.0.1.3006
 URL="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-macosx.zip"
 
 # Resolve where script is stored (symlinks too)
