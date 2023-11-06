@@ -51,6 +51,7 @@
 
         <sonar.organization>kmoco2am</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.projectKey>kmoco2am_sonar-r-plugin</sonar.projectKey>
         <sonar.sources>src/main/java</sonar.sources>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
@@ -182,7 +183,6 @@
                 <version>1.21.0.505</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <pluginKey>kmoco2am_sonar-r-plugin</pluginKey>
                     <pluginClass>com.msd.gin.common.sonar.SonarRPlugin</pluginClass>
 
                     <!-- advanced properties can be set here. See paragraph "Advanced Build Properties". -->
