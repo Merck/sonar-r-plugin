@@ -47,8 +47,10 @@
         <deploy.plugin.version>3.0.0-M1</deploy.plugin.version>
         <resources.plugin.version>3.1.0</resources.plugin.version>
         <surefire.plugin.version>3.0.0-M6</surefire.plugin.version>
-        <!-- JaCoCo Properties -->
-        <jacoco.version>0.8.8</jacoco.version>
+        <jacoco.version>0.8.11</jacoco.version>
+
+        <sonar.organization>kmoco2am</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.sources>src/main/java,src/main/js</sonar.sources>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
@@ -180,7 +182,7 @@
                 <version>1.21.0.505</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <!-- the entry-point class that extends org.sonar.api.SonarPlugin -->
+                    <pluginKey>kmoco2am_sonar-r-plugin</pluginKey>
                     <pluginClass>com.msd.gin.common.sonar.SonarRPlugin</pluginClass>
 
                     <!-- advanced properties can be set here. See paragraph "Advanced Build Properties". -->
@@ -195,7 +197,7 @@
                         <configuration>
                             <target>
                                 <copy file="${project.basedir}/target/${project.artifactId}-${project.version}.jar"
-                                      tofile="${project.basedir}/.sonar/sonarqube-8.9.8.54436/extensions/plugins/${project.artifactId}-${project.version}.jar"/>
+                                      tofile="${project.basedir}/.sonar/sonarqube-9.9.2.77730/extensions/plugins/${project.artifactId}-${project.version}.jar"/>
                             </target>
                         </configuration>
                         <goals>
