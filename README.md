@@ -1,7 +1,7 @@
 Sonar R Plugin
 ==============
-[![Build Status](https://app.travis-ci.com/Merck/sonar-r-plugin.svg?branch=master)](https://app.travis-ci.com/Merck/sonar-r-plugin)
-[![SonarCloud Status](https://sonarcloud.io/api/project_badges/measure?project=com.msd.gin.common.sonar:sonar-r-plugin&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.msd.gin.common.sonar:sonar-r-plugin)
+[![Main branch publish](https://github.com/kmoco2am/sonar-r-plugin/actions/workflows/main.yaml/badge.svg)](https://github.com/kmoco2am/sonar-r-plugin/actions/workflows/main.yaml)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=kmoco2am_sonar-r-plugin&metric=bugs)](https://sonarcloud.io/summary/new_code?id=kmoco2am_sonar-r-plugin)
 
 Adds support for [R language](https://www.r-project.org/) into SonarQube. Currently, it uses output from [lintr tool](https://github.com/jimhester/lintr)
 which is processed by the plugin and uploaded into SonarQube server.
@@ -24,7 +24,7 @@ Extending SonarQube
 
 Run SonarQube Locally with the Plugin
 -------------------------------------
-Installed **Java 11** is required to run SonarQube server.
+Installed **Java 17** is required to run SonarQube server.
 
 ```bash
 # build plugin and put it into SonarQube instance
